@@ -14,7 +14,7 @@
 
     <name>hadoop-apache2</name>
     <description>Shaded version of Apache Hadoop for Presto</description>
-    <url>https://github.com/facebook/presto-hadoop-apache2</url>
+    <url>https://github.com/prestodb/presto-hadoop-apache2</url>
 
     <inceptionYear>2013</inceptionYear>
 
@@ -31,18 +31,27 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/facebook/presto-hadoop-apache2.git</connection>
-        <developerConnection>scm:git:git://github.com/facebook/presto-hadoop-apache2.git</developerConnection>
-        <url>https://github.com/facebook/presto-hadoop-apache2</url>
-        <tag>HEAD</tag>
+        <connection>scm:git:git://github.com/prestodb/presto-hadoop-apache2.git</connection>
+        <developerConnection>scm:git:git://github.com/prestodb/presto-hadoop-apache2.git</developerConnection>
+        <url>https://github.com/prestodb/presto-hadoop-apache2</url>
+        <tag>3.2.0-1</tag>
     </scm>
 
     <properties>
+        <air.check.skip-modernizer>true</air.check.skip-modernizer>
+        <air.check.skip-duplicate-finder>true</air.check.skip-duplicate-finder>
+        <air.check.skip-dependency>true</air.check.skip-dependency>
+        <air.check.skip-checkstyle>true</air.check.skip-checkstyle>
+        <air.check.skip-spotbugs>true</air.check.skip-spotbugs>
+        <air.check.skip-pmd>true</air.check.skip-pmd>
+        <air.check.skip-jacoco>true</air.check.skip-jacoco>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.targetJdk>1.8</project.build.targetJdk>
         <shadeBase>com.facebook.presto.hadoop.\$internal</shadeBase>
         <dep.slf4j.version>1.7.25</dep.slf4j.version>
         <dep.hadoop.version>3.2.0</dep.hadoop.version>
+
+        <dep.nexus-staging-plugin.version>1.6.8</dep.nexus-staging-plugin.version>
 
         <air.check.skip-dependency>true</air.check.skip-dependency>
         <air.check.skip-duplicate-finder>true</air.check.skip-duplicate-finder>
@@ -55,6 +64,24 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>11.0.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.code.findbugs</groupId>
+                    <artifactId>jsr305</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-common</artifactId>
@@ -455,15 +482,6 @@
                     <source>${project.build.targetJdk}</source>
                     <quiet>true</quiet>
                     <doclint>-missing</doclint>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.6</version>
-                <configuration>
-                    <useAgent>true</useAgent>
                 </configuration>
             </plugin>
 

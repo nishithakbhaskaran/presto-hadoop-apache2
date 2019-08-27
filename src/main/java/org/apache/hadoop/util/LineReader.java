@@ -61,7 +61,6 @@ public class LineReader
      * default buffer-size (64k).
      *
      * @param in The input stream
-     * @throws IOException
      */
     public LineReader(InputStream in)
     {
@@ -74,7 +73,6 @@ public class LineReader
      *
      * @param in The input stream
      * @param bufferSize Size of the read buffer
-     * @throws IOException
      */
     public LineReader(InputStream in, int bufferSize)
     {
@@ -91,7 +89,6 @@ public class LineReader
      *
      * @param in input stream
      * @param conf configuration
-     * @throws IOException
      */
     public LineReader(InputStream in, Configuration conf)
             throws IOException
@@ -123,7 +120,6 @@ public class LineReader
      * @param in The input stream
      * @param bufferSize Size of the read buffer
      * @param recordDelimiterBytes The delimiter
-     * @throws IOException
      */
     public LineReader(InputStream in, int bufferSize,
             byte[] recordDelimiterBytes)
