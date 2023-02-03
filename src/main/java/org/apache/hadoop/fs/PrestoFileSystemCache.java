@@ -91,8 +91,7 @@ public class PrestoFileSystemCache
             map.put(key, fileSystemHolder);
         }
 
-        // Update file system instance when credentials change.
-        // - Private credentials are only set when using Kerberos authentication.
+        // Private credentials are only set when using Kerberos authentication.
         // When the user is the same, but the private credentials are different,
         // that means that Kerberos ticket has expired and re-login happened.
         // To prevent cache leak in such situation, the privateCredentials are not
@@ -251,11 +250,6 @@ public class PrestoFileSystemCache
     {
         String scheme = uri.getScheme();
         return "hdfs".equals(scheme) || "viewfs".equals(scheme);
-    }
-
-    private static boolean extraCredentialsChanged(FileSystem fileSystem, Configuration configuration)
-    {
-        return !configuration.get(CACHE_KEY, "").equals(fileSystem.getConf().get(CACHE_KEY, ""));
     }
 
     private static class FileSystemKey
