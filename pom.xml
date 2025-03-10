@@ -67,7 +67,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>11.0.2</version>
+            <version>32.1.0-jre</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.google.code.findbugs</groupId>
