@@ -10,7 +10,7 @@
 
     <groupId>com.facebook.presto.hadoop</groupId>
     <artifactId>hadoop-apache2</artifactId>
-    <version>3.2.0-2-SNAPSHOT</version>
+    <version>3.4.1-SNAPSHOT</version>
 
     <name>hadoop-apache2</name>
     <description>Shaded version of Apache Hadoop for Presto</description>
@@ -49,13 +49,9 @@
         <project.build.targetJdk>1.8</project.build.targetJdk>
         <shadeBase>com.facebook.presto.hadoop.\$internal</shadeBase>
         <dep.slf4j.version>1.7.25</dep.slf4j.version>
-        <dep.hadoop.version>3.2.0</dep.hadoop.version>
+        <dep.hadoop.version>3.4.1</dep.hadoop.version>
 
         <dep.nexus-staging-plugin.version>1.6.8</dep.nexus-staging-plugin.version>
-
-        <air.check.skip-dependency>true</air.check.skip-dependency>
-        <air.check.skip-duplicate-finder>true</air.check.skip-duplicate-finder>
-        <air.check.skip-modernizer>true</air.check.skip-modernizer>
         <air.check.skip-enforcer>true</air.check.skip-enforcer>
         <air.check.skip-spotbugs>true</air.check.skip-spotbugs>
         <air.check.skip-pmd>true</air.check.skip-pmd>
@@ -245,6 +241,10 @@
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-log4j12</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>org.bouncycastle</groupId>
+                    <artifactId>bcprov-jdk18on</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
 
@@ -404,6 +404,12 @@
             <artifactId>testng</artifactId>
             <version>6.2.1</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+            <version>2.1.1</version>
         </dependency>
     </dependencies>
 
@@ -691,6 +697,7 @@
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 
