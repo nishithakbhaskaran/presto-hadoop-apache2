@@ -48,7 +48,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.targetJdk>1.8</project.build.targetJdk>
         <shadeBase>com.facebook.presto.hadoop.\$internal</shadeBase>
-        <dep.slf4j.version>1.7.25</dep.slf4j.version>
+        <dep.slf4j.version>2.0.16</dep.slf4j.version>
         <dep.hadoop.version>3.4.1</dep.hadoop.version>
 
         <dep.nexus-staging-plugin.version>1.6.8</dep.nexus-staging-plugin.version>
@@ -410,6 +410,20 @@
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
             <version>2.1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.lz4</groupId>
+            <artifactId>lz4-java</artifactId>
+            <version>1.8.0</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.xerial.snappy</groupId>
+            <artifactId>snappy-java</artifactId>
+            <version>1.1.10.6</version>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
