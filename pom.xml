@@ -706,6 +706,12 @@
                                         <include>**</include>
                                     </includes>
                                 </filter>
+                                <filter>
+                                    <artifact>javax.activation:javax.activation-api</artifact>
+                                    <excludes>
+                                        <exclude>javax.activation.*</exclude>
+                                    </excludes>
+                                </filter>
                             </filters>
                         </configuration>
                     </execution>
