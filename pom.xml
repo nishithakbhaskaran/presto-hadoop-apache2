@@ -265,6 +265,10 @@
                     <groupId>javax.xml.bind</groupId>
                     <artifactId>jaxb-api</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>jakarta.activation</groupId>
+                    <artifactId>jakarta.activation-api</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
 
@@ -705,12 +709,6 @@
                                     <includes>
                                         <include>**</include>
                                     </includes>
-                                </filter>
-                                <filter>
-                                    <artifact>javax.activation:javax.activation-api</artifact>
-                                    <excludes>
-                                        <exclude>javax.activation.*</exclude>
-                                    </excludes>
                                 </filter>
                             </filters>
                         </configuration>
