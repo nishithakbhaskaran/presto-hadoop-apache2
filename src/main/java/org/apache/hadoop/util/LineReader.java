@@ -42,7 +42,7 @@ import static org.apache.hadoop.fs.CommonConfigurationKeysPublic.IO_FILE_BUFFER_
 @InterfaceAudience.LimitedPrivate("MapReduce")
 @InterfaceStability.Unstable
 public class LineReader
-        implements Closeable
+        implements Closeable , IOStatisticsSource
 {
     // Limitation for array size is VM specific. Current HotSpot VM limitation
     // for array size is Integer.MAX_VALUE - 5 (2^31 - 1 - 5).
@@ -171,6 +171,14 @@ public class LineReader
         in.close();
     }
 
+    /**
+     * Return any IOStatistics provided by the source.
+     * @return IO stats from the input stream.
+     */
+    @Override
+    public IOStatistics getIOStatistics() {
+        return IOStatisticsSupport.retrieveIOStatistics(in);
+    }
     /**
      * Read one line from the InputStream into the given Text.
      *
