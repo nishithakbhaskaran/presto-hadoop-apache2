@@ -45,6 +45,7 @@ public final class HadoopNative
         }
         try {
             loadLibrary("hadoop");
+            loadLibrary("zstd");
             setStatic(NativeCodeLoader.class.getDeclaredField("nativeCodeLoaded"), true);
 
             // verify that all configured codec classes can be loaded
