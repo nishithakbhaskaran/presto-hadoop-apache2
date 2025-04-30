@@ -707,8 +707,8 @@
                                 <filter>
                                     <artifact>org.xerial.snappy:*</artifact>
                                     <excludes>
-                                        <exclude>org/xerial/snappy/*</exclude>
-                                        <exclude>org.xerial.snappy.*</exclude>
+                                        <exclude>org/xerial/snappy/**</exclude>
+                                        <exclude>org.xerial.snappy.**</exclude>
                                     </excludes>
                                 </filter>
                                 <filter>
