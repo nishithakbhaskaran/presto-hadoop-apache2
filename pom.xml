@@ -705,6 +705,13 @@
                                     </excludes>
                                 </filter>
                                 <filter>
+                                    <artifact>org.xerial.snappy:*</artifact>
+                                    <excludes>
+                                        <exclude>org/xerial/snappy/*</exclude>
+                                        <exclude>org.xerial.snappy.*</exclude>
+                                    </excludes>
+                                </filter>
+                                <filter>
                                     <artifact>${project.groupId}:${project.artifactId}</artifact>
                                     <includes>
                                         <include>**</include>
