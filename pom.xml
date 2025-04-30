@@ -617,6 +617,10 @@
                                     <pattern>com.google.thirdparty.publicsuffix</pattern>
                                     <shadedPattern>${shadeBase}.com.google.thirdparty.publicsuffix</shadedPattern>
                                 </relocation>
+                                <relocation>
+                                    <pattern>org.xerial.snappy</pattern>
+                                    <shadedPattern>${shadeBase}.org.xerial.snappy</shadedPattern>
+                                </relocation>
                             </relocations>
                             <filters>
                                 <filter>
